@@ -2,6 +2,7 @@ package ss3_static.Exercise;
 
 public class Main {
 
+    //Khối static cung cấp dữ liệu ban đầu
     static {
         CountStudent a = new CountStudent(1, "name", 5);
         CountStudent b = new CountStudent(1, "name", 5);
