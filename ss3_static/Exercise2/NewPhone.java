@@ -14,6 +14,11 @@ public class NewPhone extends Phone{
     }
 
     @Override
+    public double calculateTotalPrice() {
+        return getPrice() * quantity;
+    }
+
+    @Override
     public void input() {
         super.input();
 

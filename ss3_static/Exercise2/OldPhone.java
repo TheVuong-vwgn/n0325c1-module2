@@ -2,7 +2,7 @@ package ss3_static.Exercise2;
 
 import java.util.Scanner;
 
-public class OldPhone extends Phone{
+public class OldPhone extends Phone implements Discountable {
     private int batterpyPercentage;
     private String decription;
 
@@ -13,6 +13,17 @@ public class OldPhone extends Phone{
         super(id, name, price, warranty, manufacturer);
         this.batterpyPercentage = batterpyPercentage;
         this.decription = decription;
+    }
+
+    @Override
+    public double calculateTotalPrice() {
+        return getPrice();
+    }
+
+    @Override
+    public void applyDiscount(double precentDiscount) {
+        double discountPrice = getPrice() * (1 - precentDiscount / 100.0);
+        setPrice(discountPrice);
     }
 
     @Override

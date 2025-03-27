@@ -57,7 +57,14 @@ public class Main {
                         menuSearch();
                         break;
                     case 7:
+                        System.out.println("Tổng giá của tất cả điện thoại: " + calculateTotalPriceInStore());
+                        break;
                     case 8:
+                        System.out.print("Nhập vào phần trăm muốn giảm giá: ");
+                        double percentDiscount = Double.parseDouble(scanner.nextLine());
+                        applyDiscountToOldPhones(percentDiscount);
+                        System.out.println("Đã giảm giá thành công");
+                        break;
                     case 9:
                         return;
                     default:
@@ -529,5 +536,19 @@ public class Main {
         }
     }
 
+    private static double calculateTotalPriceInStore() {
+        double total = 0.0;
+        for (Phone phone : phones) {
+            total += phone.calculateTotalPrice();
+        }
+        return total;
+    }
 
+    public static void applyDiscountToOldPhones(double percentDiscount) {
+        for (Phone phone : phones) {
+            if (phone instanceof OldPhone) {
+                ((OldPhone) phone).applyDiscount(percentDiscount);
+            }
+        }
+    }
 }

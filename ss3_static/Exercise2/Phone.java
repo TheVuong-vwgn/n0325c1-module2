@@ -2,12 +2,14 @@ package ss3_static.Exercise2;
 
 import java.util.Scanner;
 
-public class Phone {
+public abstract class Phone {
     private String id;
     private String name;
     private double price;
     private int warranty;
     private String manufacturer;
+
+    public abstract double calculateTotalPrice();
 
     public Phone() {
     }
