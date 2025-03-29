@@ -1,4 +1,4 @@
-package ss3_static.Exercise2;
+package ss7.Exercise1;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -25,8 +25,8 @@ public class Main {
         int choose;
 
         while (true) {
-            do {
-                System.out.println("- CHƯƠNG TRÌNH QUẢN LÝ ĐIỆN THOẠI");
+            try {
+                System.out.println("----CHƯƠNG TRÌNH QUẢN LÝ ĐIỆN THOẠI----- ");
                 System.out.println("1. Xem danh sách điện thoại");
                 System.out.println("2. Thêm mới");
                 System.out.println("3. Cập nhật");
@@ -36,8 +36,7 @@ public class Main {
                 System.out.println("7. Tính tổng tiền");
                 System.out.println("8. Giảm giá cho điện thoại cũ");
                 System.out.println("9. Thoát");
-                System.out.print("Nhập chức năng: ");
-                choose = scanner.nextInt();
+                choose = Integer.parseInt(scanner.nextLine());
                 switch (choose) {
                     case 1:
                         menuShowList();
@@ -58,7 +57,7 @@ public class Main {
                         menuSearch();
                         break;
                     case 7:
-                        System.out.println("Tổng giá của tất cả điện thoại: " + calculateTotalPriceInStore());
+                        System.out.println("Tổng giá của tất cả các điện thoại: " + calculateTotalPriceInStore());
                         break;
                     case 8:
                         System.out.print("Nhập vào phần trăm muốn giảm giá: ");
@@ -69,9 +68,12 @@ public class Main {
                     case 9:
                         return;
                     default:
-                        System.out.println("Nhập không đúng 1 -> 9, vui lòng nhập lại!!");
+                        System.out.println("Thoát chương trình");
                 }
-            }while (choose < 0 || choose > 10);
+            }catch (Exception e){
+                e.printStackTrace();
+                System.out.println("Ứng dụng gặp một số lỗi không mong muốn vui lòng thử lại các chức năng");
+            }
         }
     }
 

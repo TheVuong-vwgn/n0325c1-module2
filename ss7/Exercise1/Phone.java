@@ -1,6 +1,6 @@
-package ss3_static.Exercise2;
+package ss7.Exercise1;
 
-import java.util.Scanner;
+import ss7.Exercise1.validation.PhoneValidation;
 
 public abstract class Phone implements Comparable<Phone>{
     private String id;
@@ -27,20 +27,11 @@ public abstract class Phone implements Comparable<Phone>{
         this.manufacturer = manufacturer;
     }
 
-    public void input() {
-        Scanner scanner = new Scanner(System.in);
-
-        System.out.print("Nhập vào tên điện thoại: ");
-        this.name = scanner.nextLine();
-
-        System.out.print("Nhập vào giá bán: ");
-        this.price = Double.parseDouble(scanner.nextLine());
-
-        System.out.print("Nhập vào thời gian bảo hành: ");
-        this.warranty = Integer.parseInt(scanner.nextLine());
-
-        System.out.print("Nhập vào hảng sản xuất: ");
-        this.manufacturer = scanner.nextLine();
+    void input() {
+        this.name = PhoneValidation.inputName("Tên điện thoại");
+        this.price = PhoneValidation.inputPrice("Giá bán");
+        this.warranty = PhoneValidation.inputWarranty("Thời gian bảo hành");
+        this.manufacturer = PhoneValidation.inputManufacturer("Hãng sản xuất");
     }
 
     public void output() {
